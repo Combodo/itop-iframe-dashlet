@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
-  <constants>
-  </constants>
-  <classes>
-  </classes>
-  <menus>
-  </menus>
-  <user_rights>
-    <groups>
-    </groups>
-    <profiles>
-    </profiles>
-  </user_rights>
+  <meta>
+	<dashlets>
+	  <dashlet id="DashletIFrame" _delta="define">
+		<label>iFrame</label>
+		<icon>itop-iframe-dashlet/images/iframe.png</icon>
+		<description>Embed external web page as a dashlet.</description>
+	  </dashlet>
+	</dashlets>
+  </meta>
 </itop_design>
