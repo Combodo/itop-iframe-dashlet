@@ -9,7 +9,7 @@ SetupWebPage::AddModule(
 	array(
 		// Identification
 		//
-		'label' => 'IFrame Dashlet',
+		'label' => 'Console dashlet: iFrame',
 		'category' => 'business',
 
 		// Setup
