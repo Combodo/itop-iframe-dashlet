@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension format="1.0">
+	<extension_code>itop-iframe-dashlet</extension_code>
+	<company>Combodo SARL</company>
+	<author><![CDATA[Denis]]></author>
+	<label><![CDATA[Console dashlet: iFrame]]></label>
+	<description><![CDATA[Embed external web page as a dashlet.]]></description>
+	<version>1.0.0</version>
+	<release_date>2018-06-25</release_date>
+	<version_description><![CDATA[]]></version_description>
+	<itop_version_min>2.5.0</itop_version_min>
+	<status></status>
+	<mandatory>false</mandatory>
+	<more_info_url></more_info_url>
+</extension>

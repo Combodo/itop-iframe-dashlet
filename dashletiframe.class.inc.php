@@ -16,9 +16,18 @@ class DashletIFrame extends Dashlet
 		$sUrl = $this->aProperties['url'];
 		$iWidth = (int) $this->aProperties['width'];
 		$iHeight = (int) $this->aProperties['height'];
-		
+
+		$oPage->add('<div class="dashlet-content">');
+
 		$sId = utils::GetSafeId('dashlet_iframe_'.($bEditMode? 'edit_' : '').$this->sId);
 		$oPage->add('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>');
+
+		if($bEditMode)
+        {
+            $oPage->add('<div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; cursor: not-allowed;"></div>');
+        }
+
+        $oPage->add('</div>');
 	}
 
 	public function GetPropertiesFields(DesignerForm $oForm)
