@@ -5,8 +5,7 @@
  * @copyright   Copyright (C) 2018 Combodo SARL
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
-
-Dict::Add('ES CR', 'Spanish', 'Español, Castellano', array(
+Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
 	// Dictionary entries go here
 	'UI:DashletIframe:Label' => 'IFrame',
 	'UI:DashletIframe:Prop-Url' => 'Hipervínculo',
