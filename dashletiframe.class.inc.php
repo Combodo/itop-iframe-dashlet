@@ -1,4 +1,12 @@
 <?php
+/*
+ * @copyright   Copyright (C) 2010-2021 Combodo SARL
+ * @license     http://opensource.org/licenses/AGPL-3.0
+ */
+
+use Combodo\iTop\Application\UI\Base\Component\Html\Html;
+use Combodo\iTop\Application\UI\Base\Layout\UIContentBlockUIBlockFactory;
+
 class DashletIFrame extends Dashlet
 {
 	public function __construct($oModelReflection, $sId)
@@ -16,18 +24,25 @@ class DashletIFrame extends Dashlet
 		$sUrl = $this->aProperties['url'];
 		$iWidth = (int) $this->aProperties['width'];
 		$iHeight = (int) $this->aProperties['height'];
-
-		$oPage->add('<div class="dashlet-content">');
-
 		$sId = utils::GetSafeId('dashlet_iframe_'.($bEditMode? 'edit_' : '').$this->sId);
-		$oPage->add('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>');
 
-		if($bEditMode)
-        {
-            $oPage->add('<div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; cursor: not-allowed;"></div>');
-        }
-
-        $oPage->add('</div>');
+		if (version_compare(ITOP_DESIGN_LATEST_VERSION , 3.0) < 0) {
+			$oPage->add('<div class="dashlet-content">');
+			$oPage->add('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>');
+			if($bEditMode)
+	        {
+	            $oPage->add('<div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; cursor: not-allowed;"></div>');
+	        }
+	        $oPage->add('</div>');
+			return null;
+		} else {
+			$oBlock = UIContentBlockUIBlockFactory::MakeStandard(null, ["dashlet-content"]);
+			$oBlock->AddSubBlock(new Html('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>'));
+			if ($bEditMode) {
+				$oBlock->AddSubBlock(UIContentBlockUIBlockFactory::MakeStandard(null, ["frame-view-blocker"]));
+			}
+			return $oBlock;
+		}
 	}
 
 	public function GetPropertiesFields(DesignerForm $oForm)
