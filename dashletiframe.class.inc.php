@@ -28,7 +28,7 @@ class DashletIFrame extends Dashlet
 
 		if (version_compare(ITOP_DESIGN_LATEST_VERSION , 3.0) < 0) {
 			$oPage->add('<div class="dashlet-content">');
-			$oPage->add('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>');
+			$oPage->add('<iframe id="'.$sId.'" style="max-width: 100%;" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>');
 			if($bEditMode)
 	        {
 	            $oPage->add('<div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; cursor: not-allowed;"></div>');
@@ -37,7 +37,7 @@ class DashletIFrame extends Dashlet
 			return null;
 		} else {
 			$oBlock = UIContentBlockUIBlockFactory::MakeStandard(null, ["dashlet-content"]);
-			$oBlock->AddSubBlock(new Html('<iframe id="'.$sId.'" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>'));
+			$oBlock->AddSubBlock(new Html('<iframe id="'.$sId.'" style="max-width: 100%;" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>'));
 			if ($bEditMode) {
 				$oBlock->AddSubBlock(UIContentBlockUIBlockFactory::MakeStandard(null, ["frame-view-blocker"]));
 			}
