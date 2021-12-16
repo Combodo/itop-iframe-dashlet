@@ -36,10 +36,11 @@ class DashletIFrame extends Dashlet
 	        $oPage->add('</div>');
 			return null;
 		} else {
+			$oPage->add_saas('env-'.utils::GetCurrentEnvironment().'/itop-iframe-dashlet/asset/css/style.scss');
 			$oBlock = UIContentBlockUIBlockFactory::MakeStandard(null, ["dashlet-content"]);
-			$oBlock->AddSubBlock(new Html('<iframe id="'.$sId.'" style="max-width: 100%;" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>'));
+			$oBlock->AddSubBlock(new Html('<iframe id="'.$sId.'" class="iframe-style" width="'.$iWidth.'" height="'.$iHeight.'" frameborder="0" src="'.$sUrl.'"></iframe>'));
 			if ($bEditMode) {
-				$oBlock->AddSubBlock(UIContentBlockUIBlockFactory::MakeStandard(null, ["frame-view-blocker"]));
+				$oBlock->AddSubBlock(UIContentBlockUIBlockFactory::MakeStandard(null, ["iframe-view-blocker"]));
 			}
 			return $oBlock;
 		}
